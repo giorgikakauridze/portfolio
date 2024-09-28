@@ -3,25 +3,46 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
   }
 }
-
 body {
-  color: var(--foreground);
-  background: var(--background);
+  background: rgb(20, 17, 40);
+}
+main {
+  padding: 0 25vh;
+  color: white;
+  padding-top: 25px;
+  background: rgb(20, 17, 40);
+  min-height: 100vh;
+  background-attachment: fixed; /* Keeps the background static */
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@media (max-width: 1000px) {
+  main {
+    padding: 0px;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer utilities {
+  .no-spinner {
+    -moz-appearance: textfield; /* Firefox */
+    appearance: textfield; /* Standard */
+  }
+
+  .no-spinner::-webkit-outer-spin-button,
+  .no-spinner::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 }
