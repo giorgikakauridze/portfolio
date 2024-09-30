@@ -62,7 +62,7 @@ const Footer = () => {
         <div className=" mobile:gap-0 flex gap-7 items-center">
           <div className="flex mr-10 gap-3">
             <HeadPhonesSvg />
-            <span>support@crypto.com</span>
+            <span>support@coinstonk.com</span>
           </div>
           <VisaSvg />
           <MastercardSvg />
