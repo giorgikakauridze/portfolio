@@ -1,7 +1,7 @@
 import SuccessTransaction from "@/app/_components/SuccessTransaction";
 import React from "react";
 
-export const metadata = { title: "Crypto: Success" };
+export const metadata = { title: "CoinStonks: Success" };
 
 const page = () => {
   return (

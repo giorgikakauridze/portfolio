@@ -5,7 +5,7 @@ import DecentrelizedSvg from "../svgs/decentrelizedSvg";
 import TransparentSvg from "../svgs/transparentSvg";
 import CommunityDriven from "../svgs/communityDrivenSvg";
 
-export const metadata = { title: "Crypto: About" };
+export const metadata = { title: "CoinStonks: About" };
 const page = () => {
   return (
     <div className="verybig:ml-10 verybig:mr-10 ml-36 mr-36">

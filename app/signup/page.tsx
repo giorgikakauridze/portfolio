@@ -1,6 +1,6 @@
 import SignUpPage from "../_components/SignUpPage";
 
-export const metadata = { title: "Crypto: Sign up" };
+export const metadata = { title: "CoinStonks: Sign up" };
 
 const page = () => {
   return (

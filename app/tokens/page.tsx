@@ -1,6 +1,6 @@
 import TokensPage from "../_components/TokensPage";
 
-export const metadata = { title: "Crypto Tokens" };
+export const metadata = { title: "CoinStonks: Tokens" };
 const page = () => {
   return <TokensPage />;
 };

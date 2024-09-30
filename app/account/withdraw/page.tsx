@@ -1,6 +1,6 @@
 import WithdrawPage from "../../_components/WithdrawPage";
 
-export const metadata = { title: "Crypto: Withdraw" };
+export const metadata = { title: "CoinStonks: Withdraw" };
 
 const page = () => {
   return (

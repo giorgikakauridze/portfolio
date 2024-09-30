@@ -56,7 +56,7 @@ const Footer = () => {
             </div>
           </div>
           <div className=" pb-20 font-[500]">
-            Copyright By %CRYPTO% © 2015-2024 , Powered By Blockchain
+            Copyright By CoinStonks © 2015-2024 , Powered By Blockchain
           </div>
         </div>
         <div className=" mobile:gap-0 flex gap-7 items-center">
