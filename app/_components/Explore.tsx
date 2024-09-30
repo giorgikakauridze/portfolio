@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import cryptoWorld from "../images/cryptoWorld.png";
 import ButtonMain from "../_components/ButtonMain";

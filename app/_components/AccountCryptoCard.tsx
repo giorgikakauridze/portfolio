@@ -1,7 +1,6 @@
 "use client";
 import Image, { StaticImageData } from "next/image";
 import React, { useState } from "react";
-import btc from "../images/btc.png";
 import SnippetUI from "./Snippet";
 import ButtonMain from "./ButtonMain";
 import Line from "./Line";

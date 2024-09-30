@@ -8,7 +8,6 @@ interface InputComponentProps {
 
 const InputComponentForCrypto: React.FC<InputComponentProps> = ({
   children,
-  avaliableBalance,
 }) => {
   const { withdrawAmount, setWithdrawAmount } = useMyContext();
   return (

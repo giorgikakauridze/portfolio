@@ -8,7 +8,7 @@ interface InputComponentProps {
   children: string;
 }
 
-const SignUpInput: React.FC<InputComponentProps> = ({ children }) => {
+const SignUpInput: React.FC<InputComponentProps> = () => {
   const [fullName, setFullName] = useState("");
   const { setInputCheck } = useMyContext();
   const [isVisible, setIsVisible] = useState(false);

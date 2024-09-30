@@ -6,7 +6,6 @@ import {
   TableRow,
   TableCell,
 } from "@nextui-org/react";
-import Line from "./Line";
 import { StaticImageData } from "next/image";
 interface Coin {
   name: string;
@@ -42,7 +41,7 @@ const TableComponent: React.FC<TableProps> = ({ coin, transactions }) => {
         tbody: "bg-[rgb(40,37,83)]  rounded-lg  ",
         tr: "bg-[rgb(40,37,83)] rounded-lg ",
         th: "bg-[rgb(24,22,51)]  pl-10 text-[12px] ",
-        td: "bg-[rgb(40,37,83)] opacity-75 pl-10 pt-4 pb-4  lg:text-[16px] mobile:text-[8px]   bg-[rgb(24,22,51)] ",
+        td: "bg-[rgb(40,37,83)] opacity-75 pl-10 pt-4 pb-4  lg:text-[16px] mobile:text-[4px]   bg-[rgb(24,22,51)] ",
         tfoot: "bg-[rgb(40,37,83)] rounded-lg ",
         sortIcon: "bg-[rgb(40,37,83)] rounded-lg ",
         emptyWrapper: "bg-[rgb(40,37,83)] rounded-lg ",

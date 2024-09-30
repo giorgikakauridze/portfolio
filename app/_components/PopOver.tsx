@@ -3,7 +3,6 @@ import {
   PopoverTrigger,
   PopoverContent,
   Button,
-  Input,
 } from "@nextui-org/react";
 import { useMyContext } from "../_context/context";
 

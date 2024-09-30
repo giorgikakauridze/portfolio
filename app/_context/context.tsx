@@ -323,7 +323,7 @@ export const MyProvider = ({ children }: { children: ReactNode }) => {
       setIsLoading(false);
     };
     cryptos();
-  }, []);
+  }, [setIsLoading]);
 
   useEffect(() => {
     type CryptoTransaction = {
@@ -335,7 +335,7 @@ export const MyProvider = ({ children }: { children: ReactNode }) => {
       crypto: string;
     };
 
-    type SupabaseInsertPayload<T> = {
+    type SupabaseInsertPayload = {
       new: CryptoTransaction;
     };
 
@@ -358,7 +358,7 @@ export const MyProvider = ({ children }: { children: ReactNode }) => {
       .on(
         "postgres_changes",
         { event: "INSERT", schema: "public", table: "CryptoTransactions" },
-        (payload: SupabaseInsertPayload<CryptoTransaction>) => {
+        (payload: SupabaseInsertPayload) => {
           const newTransaction = payload.new;
           if (newTransaction.type === "Deposit")
             toast.success(

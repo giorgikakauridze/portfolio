@@ -1,10 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import ButtonMain from "./ButtonMain";
 import LoginModal from "./LoginModal";
 import { useMyContext } from "../_context/context";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 
 const Hero = () => {
   const router = useRouter();

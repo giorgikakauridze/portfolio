@@ -19,7 +19,7 @@ const SuccessSignUp = () => {
     }, 1000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [setIsLoading]);
   return (
     <>
       {isLoading ? (

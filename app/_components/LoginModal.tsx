@@ -13,24 +13,23 @@ import {
 } from "@nextui-org/react";
 import MailIcon from "../svgs/MailIcon";
 import LockIcon from "../svgs/LockIcon";
-import { getUsers } from "../_lib/actions"; // Server-side action
+import { getUsers } from "../_lib/actions";
 import { useMyContext } from "../_context/context";
 
 const LoginModal = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const { setIsLogged, setUser } = useMyContext(); // Access to context
+  const { setIsLogged, setUser } = useMyContext();
   const [error, setError] = useState<string | null>(null);
 
   const handleLogin = async (formData: FormData) => {
     try {
-      // Call server action to validate login
       const result = await getUsers(formData);
 
       if (result.success) {
         localStorage.setItem("isLogged", "true");
         localStorage.setItem("LoggedUser", result.isValid[0].fullName);
         setUser(result.isValid[0]);
-        setIsLogged(true); // Update context if login is successful
+        setIsLogged(true);
       } else {
         setError("Invalid credentials, please try again.");
       }
@@ -49,13 +48,13 @@ const LoginModal = () => {
     };
     if (storedIsLogged === "true") {
       setUser(storedUserObject);
-      setIsLogged(true); // Restore login state from local storage
+      setIsLogged(true);
     }
-  }, [setIsLogged]); // Only run once when the component mounts
+  }, [setIsLogged, setUser]);
 
   return (
     <>
-      <Button onPress={onOpen} size="lg" color="secondary">
+      <Button onClick={onOpen} size="lg" color="secondary">
         Log in
       </Button>
 
@@ -63,7 +62,6 @@ const LoginModal = () => {
         <ModalContent className="text-white bg-[rgb(29,27,64)]">
           {(onClose) => (
             <>
-              {/* Form submission is handled by server-side action */}
               <form action={handleLogin}>
                 <ModalHeader className="flex flex-col gap-1">
                   Log in

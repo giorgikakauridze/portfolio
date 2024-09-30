@@ -4,9 +4,7 @@ import SignUpInput from "../_components/SignUpInput";
 import ButtonMain from "../_components/ButtonMain";
 import { createUser } from "../_lib/actions";
 import { useMyContext } from "../_context/context";
-import SuccesSvg from "../svgs/successSvg";
-import LoginModal from "../_components/LoginModal";
-import { redirect, useRouter } from "next/navigation";
+
 const SignUpPage = () => {
   const { inputCheck } = useMyContext();
 

@@ -1,5 +1,4 @@
 "use server";
-import { revalidatePath } from "next/cache";
 import { supabase } from "./supabase";
 import { redirect } from "next/navigation";
 
@@ -9,14 +8,14 @@ export async function createUser(formData) {
     fullName: formData.get("fullName"),
     password: formData.get("password"),
   };
-  const { data, err } = await supabase.from("CryptoAppUsers").select("email");
+  const { data } = await supabase.from("CryptoAppUsers").select("email");
   const duplicate = data.filter((email) => email.email === newUser.email);
 
   if (duplicate.length) {
     throw new Error("Email already registered");
   }
 
-  const { error } = await supabase.from("CryptoAppUsers").insert(newUser);
+  const {} = await supabase.from("CryptoAppUsers").insert(newUser);
   redirect("/signup/success");
 }
 
@@ -25,7 +24,7 @@ export async function getUsers(formData) {
     email: formData.get("email"),
     password: formData.get("password"),
   };
-  const { data, error } = await supabase.from("CryptoAppUsers").select("*");
+  const { data } = await supabase.from("CryptoAppUsers").select("*");
 
   const isValid = data.filter(
     (user) =>
@@ -41,7 +40,7 @@ export async function getUsers(formData) {
 export async function createWithdraw(formData) {
   let payment = formData.get("paymentMethod");
   let cryptoName;
-  for (let [key, value] of formData.entries()) {
+  for (let [key] of formData.entries()) {
     if (
       key === "BTC" ||
       key === "ETH" ||
@@ -61,11 +60,9 @@ export async function createWithdraw(formData) {
     crypto: cryptoName,
   };
   try {
-    const { data, error } = await supabase
-      .from("CryptoTransactions")
-      .insert(newTransaction);
+    const {} = await supabase.from("CryptoTransactions").insert(newTransaction);
     return { success: true };
-  } catch (err) {
+  } catch (error) {
     throw new Error("Something went wrong");
   }
 }
