@@ -15,6 +15,8 @@ import InputComponentForCrypto from "@/app/_components/InputComponentForCrypto";
 import { createWithdraw } from "@/app/_lib/actions";
 import { useRouter } from "next/navigation";
 import BinanceSvg from "@/app/svgs/binanceSvg";
+import WechatSvg from "@/app/svgs/wechatSvg";
+import AlipaySvg from "@/app/svgs/alipaySvg";
 import SpinnerComponent from "@/app/_components/Spinner";
 
 const WithdrawPage = () => {
@@ -55,6 +57,8 @@ const WithdrawPage = () => {
     {
       name: "Mastercard",
     },
+    { name: "WeChat" },
+    { name: "Alipay" },
   ];
 
   const handleLogin = async (formData: FormData) => {
@@ -100,8 +104,12 @@ const WithdrawPage = () => {
                 <VenmoSvg />
               ) : selectedCrypto && selectedPayment === "Binance" ? (
                 <BinanceSvg />
+              ) : selectedCrypto && selectedPayment === "WeChat" ? (
+                <WechatSvg />
+              ) : selectedCrypto && selectedPayment === "Alipay" ? (
+                <AlipaySvg />
               ) : (
-                ""
+                " "
               )}
             </div>
             <div className="mobile:justify-center mobile:items-start mobile:gap-5 flex  w-96 justify-between items-center">

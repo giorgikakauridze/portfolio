@@ -40,8 +40,8 @@ const TableComponent: React.FC<TableProps> = ({ coin, transactions }) => {
         thead: "bg-[rgb(40,37,83)]  rounded-lg  ",
         tbody: "bg-[rgb(40,37,83)]  rounded-lg  ",
         tr: "bg-[rgb(40,37,83)] rounded-lg ",
-        th: "bg-[rgb(24,22,51)]  pl-10 text-[12px] ",
-        td: "bg-[rgb(40,37,83)] opacity-75 pl-10 pt-4 pb-4  lg:text-[16px] mobile:text-[4px]   bg-[rgb(24,22,51)] ",
+        th: "bg-[rgb(24,22,51)] mobile:pl-2 pl-10 text-[12px] ",
+        td: "bg-[rgb(40,37,83)] opacity-75 pl-10 mobile:pl-2 pt-4 pb-4   lg:text-[16px] mobile:text-[6px]   bg-[rgb(24,22,51)] ",
         tfoot: "bg-[rgb(40,37,83)] rounded-lg ",
         sortIcon: "bg-[rgb(40,37,83)] rounded-lg ",
         emptyWrapper: "bg-[rgb(40,37,83)] rounded-lg ",
@@ -55,7 +55,7 @@ const TableComponent: React.FC<TableProps> = ({ coin, transactions }) => {
         <TableColumn>TO</TableColumn>
         <TableColumn>STATUS</TableColumn>
       </TableHeader>
-      <TableBody emptyContent={"No rows to display."}>
+      <TableBody emptyContent={"No transactions to display."}>
         {transactions.map((item, index) =>
           coin?.name === item?.crypto ? (
             <TableRow key={index}>

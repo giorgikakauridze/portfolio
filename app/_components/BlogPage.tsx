@@ -7,7 +7,7 @@ import blogImage4 from "../images/blogImage4.jpg";
 const BlogPage = () => {
   return (
     <div>
-      <div className="ml-36 mr-36 pt-36 flex gap-5 justify-between">
+      <div className="ml-36 mobile:m-0 mr-36 pt-36 flex gap-5 justify-between">
         <h1 className="text-5xl font-[1000]">BLOG</h1>
         <p className="text-xl w-[50%] mobile:text-xs font-[1000]">
           Stay updated with the latest insights and developments in the crypto

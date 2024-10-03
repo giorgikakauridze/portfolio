@@ -1,5 +1,6 @@
 import { Input } from "@nextui-org/react";
 import { useMyContext } from "../_context/context";
+import React from "react";
 
 interface InputComponentProps {
   children: string;
@@ -45,9 +46,15 @@ const InputComponent: React.FC<InputComponentProps> = ({ children }) => {
                 ? "Card Number"
                 : children === "Binance"
                 ? "Crypto Address"
+                : children === "Alipay"
+                ? "Alipay ID"
+                : children === "WeChat"
+                ? "WeChat ID"
                 : ""
             }
-            startContent={children === "Venmo" ? "@" : ""}
+            startContent={
+              children === "Venmo" ? "@" : children === "WeChat" ? "" : ""
+            }
             placeholder={
               children === "Paypal"
                 ? "paypal@example.com"

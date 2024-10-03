@@ -7,6 +7,7 @@ import LoginModal from "./LoginModal";
 import { useMyContext } from "../_context/context";
 import { usePathname, useRouter } from "next/navigation";
 import AccountSvg from "../svgs/accountSvg";
+
 const Navigation = () => {
   const { isLogged, user } = useMyContext();
   const currentPath = usePathname();
@@ -67,7 +68,7 @@ const Navigation = () => {
           <span
             className={`${
               currentPath === "/account" ? "text-[rgb(108,107,158)]" : ""
-            } text-xl flex gap-5`}
+            } text-xl flex gap-5 items-center`}
           >
             {isLogged ? (
               <Link href={"/account"}>

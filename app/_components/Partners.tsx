@@ -10,7 +10,7 @@ const Partners = () => {
   return (
     <div className="flex flex-col text-center pt-5 pb-16 bg-[rgba(29,27,64,0.46)]  rounded-[24px] shadow-2xl hover:shadow-black  transition-shadow duration-300 ease-in-out">
       <div className="font-[1000]  pt-5 text-2xl">OUR PARTNERS</div>
-      <div className="flex gap-16 pt-20 justify-center">
+      <div className="mobile:grid mobile:pl-5 mobile:pt-10 mobile:gap-28  mobile:grid-cols-2  flex gap-16 pt-20 justify-center">
         <BinanceSvg />
         <VisaSvg />
         <MastercardSvg />

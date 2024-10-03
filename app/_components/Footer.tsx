@@ -59,13 +59,20 @@ const Footer = () => {
             Copyright By CoinStonks © 2015-2024 , Powered By Blockchain
           </div>
         </div>
-        <div className=" mobile:gap-0 flex gap-7 items-center">
+        <div className="mobile:hidden flex gap-7 items-center">
           <div className="flex mr-10 gap-3">
             <HeadPhonesSvg />
             <span>support@coinstonk.com</span>
           </div>
           <VisaSvg />
           <MastercardSvg />
+        </div>
+        <div className="hidden mobile:gap-0 mobile:flex gap-7 items-center">
+          <div className="flex mr-10 gap-3">
+            <HeadPhonesSvg />
+            <span>support@coinstonk.com</span>
+          </div>
+          <VisaSvg />
         </div>
       </footer>
     </>
