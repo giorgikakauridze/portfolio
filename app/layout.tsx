@@ -36,6 +36,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <link rel="icon" href="/icon.svg" />
+      <meta
+        name="google-site-verification"
+        content="bPngOzOT2F5D9Xb9MO4xpHbWUhEkJ5WQTE12mnx40ZQ"
+      />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
