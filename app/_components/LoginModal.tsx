@@ -15,6 +15,7 @@ import MailIcon from "../svgs/MailIcon";
 import LockIcon from "../svgs/LockIcon";
 import { getUsers } from "../_lib/actions";
 import { useMyContext } from "../_context/context";
+import { motion } from "framer-motion";
 
 const LoginModal = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -67,50 +68,60 @@ const LoginModal = () => {
                   Log in
                 </ModalHeader>
                 <ModalBody>
-                  <Input
-                    name="email"
-                    id="email"
-                    classNames={{
-                      inputWrapper:
-                        "border-[rgb(63,63,70)] group-data-[focus=true]/input:border-[rgba(213, 211, 224, 0.425)]",
+                  <motion.div
+                    className="box"
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      duration: 1.5,
+                      delay: 0,
+                      ease: [0, 0.71, 0.2, 1.01],
                     }}
-                    className="border-none"
-                    autoFocus
-                    endContent={
-                      <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
-                    }
-                    type="email"
-                    label="Email"
-                    placeholder="Enter your email"
-                    variant="bordered"
-                  />
-                  <Input
-                    name="password"
-                    id="password"
-                    classNames={{
-                      inputWrapper:
-                        "border-[rgb(63,63,70)] group-data-[focus=true]/input:border-violet",
-                    }}
-                    endContent={
-                      <LockIcon className="text-2xl  text-default-400 pointer-events-none flex-shrink-0" />
-                    }
-                    label="Password"
-                    placeholder="Enter your password"
-                    type="password"
-                    variant="bordered"
-                  />
-                  <div className="flex py-2 px-1 justify-between">
-                    <Checkbox
-                      color="secondary"
+                  >
+                    <Input
+                      name="email"
+                      id="email"
                       classNames={{
-                        label: "text-small",
+                        inputWrapper:
+                          "border-[rgb(63,63,70)] mb-3 group-data-[focus=true]/input:border-[rgba(213, 211, 224, 0.425)]",
                       }}
-                    >
-                      Remember me
-                    </Checkbox>
-                  </div>
-                  {error && <p className="text-red-500">{error}</p>}{" "}
-                  {/* Show error if exists */}
+                      className="border-none"
+                      autoFocus
+                      endContent={
+                        <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+                      }
+                      type="email"
+                      label="Email"
+                      placeholder="Enter your email"
+                      variant="bordered"
+                    />
+                    <Input
+                      name="password"
+                      id="password"
+                      classNames={{
+                        inputWrapper:
+                          "border-[rgb(63,63,70)] mb-3 group-data-[focus=true]/input:border-violet",
+                      }}
+                      endContent={
+                        <LockIcon className="text-2xl  text-default-400 pointer-events-none flex-shrink-0" />
+                      }
+                      label="Password"
+                      placeholder="Enter your password"
+                      type="password"
+                      variant="bordered"
+                    />
+                    <div className="flex py-2 px-1 justify-between">
+                      <Checkbox
+                        color="secondary"
+                        classNames={{
+                          label: "text-small",
+                        }}
+                      >
+                        Remember me
+                      </Checkbox>
+                    </div>
+                    {error && <p className="text-red-500">{error}</p>}{" "}
+                  </motion.div>
                 </ModalBody>
                 <ModalFooter className="flex gap-5">
                   <Button
