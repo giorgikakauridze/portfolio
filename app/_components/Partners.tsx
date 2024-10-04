@@ -7,17 +7,23 @@ import PaypalSvg from "../svgs/paypalSvg";
 import ZenSvg from "../svgs/zenSvg";
 import VenmoSvg from "../svgs/venmoSvg";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const Partners = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true, // animate only once when it enters the viewport
+    threshold: 0.2, // triggers when 20% of the component is in view
+  });
+
   return (
     <motion.div
-      className="box"
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={{ opacity: 1, scale: 1 }}
+      ref={ref}
+      initial={{ opacity: 0, y: 200 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}} // Conditional animation
       transition={{
-        duration: 0.5,
-        delay: 1,
-        ease: [0, 0.71, 0.2, 1.01],
+        delay: 0,
+        ease: [0.71, 0.2, 0.2, 1.01],
+        duration: 1.5,
       }}
     >
       <div className="flex flex-col text-center pt-5 pb-16 bg-[rgba(29,27,64,0.46)]  rounded-[24px] shadow-2xl hover:shadow-black  transition-shadow duration-300 ease-in-out">

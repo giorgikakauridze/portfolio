@@ -5,18 +5,23 @@ import cryptoWorld from "../images/cryptoWorld.png";
 import ButtonMain from "../_components/ButtonMain";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const Explore = () => {
   const router = useRouter();
+  const { ref, inView } = useInView({
+    triggerOnce: true, // animate only once when it enters the viewport
+    threshold: 0.2, // triggers when 20% of the component is in view
+  });
   return (
     <motion.div
-      className="box"
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={{ opacity: 1, scale: 1 }}
+      ref={ref}
+      initial={{ opacity: 0, y: 300 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{
-        duration: 0.5,
-        delay: 1,
-        ease: [0, 0.71, 0.2, 1.01],
+        delay: 0.1,
+        ease: [0.71, 0.2, 0.2, 1.01],
+        duration: 1.5,
       }}
     >
       <div className="lg:flex justify-between pt-36">

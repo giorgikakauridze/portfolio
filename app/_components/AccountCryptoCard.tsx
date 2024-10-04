@@ -80,10 +80,10 @@ const AccountCryptoCard: React.FC<CryptoCardProps> = ({ coin }) => {
       {isOpen ? (
         <motion.div
           className="box"
-          initial={{ opacity: 0, scale: 0.7 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, x: -150 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{
-            duration: 1,
+            duration: 1.5,
             delay: 0,
             ease: [0, 0.71, 0.2, 1.01],
           }}
