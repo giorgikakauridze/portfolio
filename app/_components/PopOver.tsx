@@ -8,7 +8,7 @@ import { useMyContext } from "../_context/context";
 
 const PopOver = () => {
   const { setSelectedCrypto, balance } = useMyContext();
-  // console.log(balance);
+
   const content = (
     <PopoverContent className="w-[240px]">
       {(titleProps) => (

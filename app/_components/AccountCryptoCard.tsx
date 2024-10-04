@@ -7,6 +7,8 @@ import Line from "./Line";
 import { useRouter } from "next/navigation";
 import TableComponent from "./TableComponent";
 import { useMyContext } from "../_context/context";
+import { motion } from "framer-motion";
+
 interface Coin {
   name: string;
   price: number;
@@ -76,7 +78,18 @@ const AccountCryptoCard: React.FC<CryptoCardProps> = ({ coin }) => {
       </div>
 
       {isOpen ? (
-        <TableComponent coin={coin} transactions={transactions} />
+        <motion.div
+          className="box"
+          initial={{ opacity: 0, scale: 0.7 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 1,
+            delay: 0,
+            ease: [0, 0.71, 0.2, 1.01],
+          }}
+        >
+          <TableComponent coin={coin} transactions={transactions} />
+        </motion.div>
       ) : (
         <Line />
       )}

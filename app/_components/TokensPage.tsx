@@ -6,10 +6,20 @@ import BtcTokenSvg from "../svgs/btcTokenSvg";
 import LtcTokenSvg from "../svgs/ltcTokenSvg";
 import EthTokenSvg from "../svgs/ethTokenSvg";
 import TronTokenSvg from "../svgs/tronTokenSvg";
+import { motion } from "framer-motion";
 
 const TokensPage = () => {
   return (
-    <>
+    <motion.div
+      className="box"
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 1,
+        delay: 0.2,
+        ease: [0, 0.71, 0.2, 1.01],
+      }}
+    >
       <div className="verybig:m-0 ml-36 mr-36">
         <div className="pt-36  justify-center flex items-center ">
           <h1 className="pb-32 font-[1000] text-6xl ">Tokens</h1>
@@ -174,7 +184,7 @@ const TokensPage = () => {
         </div>
         <Line />
       </div>
-    </>
+    </motion.div>
   );
 };
 

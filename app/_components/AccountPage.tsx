@@ -4,6 +4,7 @@ import AccountCryptoCard from "../_components/AccountCryptoCard";
 import { useMyContext } from "../_context/context";
 import SpinnerComponent from "../_components/Spinner";
 import Line from "../_components/Line";
+import { motion } from "framer-motion";
 
 const AccountPage = () => {
   const { setIsLoading, isLoading, accumulatedBalance, isLogged, coins } =
@@ -12,7 +13,16 @@ const AccountPage = () => {
     setIsLoading(true);
   }
   return (
-    <>
+    <motion.div
+      className="box"
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 1,
+        delay: 0.4,
+        ease: [0, 0.71, 0.2, 1.01],
+      }}
+    >
       {isLoading ? (
         <div className="flex items-center justify-center pt-96">
           <SpinnerComponent />
@@ -29,7 +39,7 @@ const AccountPage = () => {
           ))}
         </div>
       )}
-    </>
+    </motion.div>
   );
 };
 

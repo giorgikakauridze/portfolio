@@ -4,8 +4,6 @@ import "./globals.css";
 import { NextUIProvider } from "@nextui-org/react";
 import Navigation from "./_components/Navigation";
 import Footer from "./_components/Footer";
-import { Suspense } from "react";
-import SpinnerComponent from "./_components/Spinner";
 import Partners from "./_components/Partners";
 import Explore from "./_components/Explore";
 import { MyProvider } from "./_context/context";
@@ -48,9 +46,9 @@ export default function RootLayout({
             <MyProvider>
               <Toaster />
               <Navigation />
-              <Suspense fallback={<SpinnerComponent />}>
-                <div className="pb-96">{children}</div>
-              </Suspense>
+
+              <div className="pb-96">{children}</div>
+
               <Partners />
               <Explore />
             </MyProvider>

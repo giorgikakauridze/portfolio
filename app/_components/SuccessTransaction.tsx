@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 import { useMyContext } from "../_context/context";
 import SpinnerComponent from "./Spinner";
+import { motion } from "framer-motion";
 
 const SuccessTransaction = () => {
   const router = useRouter();
@@ -32,7 +33,16 @@ const SuccessTransaction = () => {
     selectedPayment === "Bank / Wire transfer " ? "Bank" : selectedPayment;
 
   return (
-    <>
+    <motion.div
+      className="box"
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.5,
+        delay: 1,
+        ease: [0, 0.71, 0.2, 1.01],
+      }}
+    >
       {isLoading ? (
         <div className="flex items-center justify-center pt-96">
           <SpinnerComponent />
@@ -61,7 +71,7 @@ const SuccessTransaction = () => {
           </div>
         </div>
       )}
-    </>
+    </motion.div>
   );
 };
 

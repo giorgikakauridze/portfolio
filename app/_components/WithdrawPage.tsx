@@ -18,6 +18,7 @@ import BinanceSvg from "@/app/svgs/binanceSvg";
 import WechatSvg from "@/app/svgs/wechatSvg";
 import AlipaySvg from "@/app/svgs/alipaySvg";
 import SpinnerComponent from "@/app/_components/Spinner";
+import { motion } from "framer-motion";
 
 const WithdrawPage = () => {
   const {
@@ -74,122 +75,169 @@ const WithdrawPage = () => {
   };
 
   return (
-    <form action={handleLogin}>
-      {isLoading ? (
-        <div className="flex items-center justify-center pt-96">
-          <SpinnerComponent />
-        </div>
-      ) : (
-        <div className="pt-36">
-          <div className="flex pb-16 text-2xl justify-center  font-[1000]">
-            Withdrawable Balance: {accumulatedBalance} $
+    <motion.div
+      className="box"
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 1,
+        delay: 0.5,
+        ease: [0, 0.71, 0.2, 1.01],
+      }}
+    >
+      <form action={handleLogin}>
+        {isLoading ? (
+          <div className="flex items-center justify-center pt-96">
+            <SpinnerComponent />
           </div>
-          <div className="mobile:flex-col mobile:gap-5  flex items-center justify-around">
-            <div
-              className={`flex items-center gap-5 ${
-                selectedCrypto ? "w-96" : ""
-              } `}
-            >
-              <SelectComponent payments={payments}></SelectComponent>
-              {selectedCrypto && selectedPayment === "Mastercard" ? (
-                <MastercardSvg />
-              ) : selectedCrypto && selectedPayment === "Visa" ? (
-                <VisaSvg />
-              ) : selectedCrypto && selectedPayment === "Paypal" ? (
-                <PaypalSvg />
-              ) : selectedCrypto &&
-                selectedPayment === "Bank / Wire transfer " ? (
-                <WireTransferSvg />
-              ) : selectedCrypto && selectedPayment === "Venmo" ? (
-                <VenmoSvg />
-              ) : selectedCrypto && selectedPayment === "Binance" ? (
-                <BinanceSvg />
-              ) : selectedCrypto && selectedPayment === "WeChat" ? (
-                <WechatSvg />
-              ) : selectedCrypto && selectedPayment === "Alipay" ? (
-                <AlipaySvg />
-              ) : (
-                " "
-              )}
+        ) : (
+          <div className="pt-36">
+            <div className="flex pb-16 text-2xl justify-center  font-[1000]">
+              Withdrawable Balance: {accumulatedBalance} $
             </div>
-            <div className="mobile:justify-center mobile:items-start mobile:gap-5 flex  w-96 justify-between items-center">
-              {selectedCrypto ? (
-                <>
-                  <div className="flex gap-5 items-center">
-                    <Image
-                      width={50}
-                      height={50}
-                      alt="coin"
-                      src={currentCrypto[0].logo}
-                    />
-                    <span className="bg-[rgb(40,36,85)] p-3 rounded-xl text-sm font-[1000]">
-                      {currentCrypto[0].name}
-                    </span>
-                  </div>
-                  <div className="font-[1000] text-[16px]">
-                    ≈ {currentCrypto[0].price} USD
-                  </div>
+            <div className="mobile:flex-col mobile:gap-5  flex items-center justify-around">
+              <div
+                className={`flex items-center gap-5 ${
+                  selectedCrypto ? "w-96" : ""
+                } `}
+              >
+                <SelectComponent payments={payments}></SelectComponent>
+
+                {selectedCrypto && selectedPayment === "Mastercard" ? (
+                  <MastercardSvg />
+                ) : selectedCrypto && selectedPayment === "Visa" ? (
+                  <VisaSvg />
+                ) : selectedCrypto && selectedPayment === "Paypal" ? (
+                  <PaypalSvg />
+                ) : selectedCrypto &&
+                  selectedPayment === "Bank / Wire transfer " ? (
+                  <WireTransferSvg />
+                ) : selectedCrypto && selectedPayment === "Venmo" ? (
+                  <VenmoSvg />
+                ) : selectedCrypto && selectedPayment === "Binance" ? (
+                  <BinanceSvg />
+                ) : selectedCrypto && selectedPayment === "WeChat" ? (
+                  <WechatSvg />
+                ) : selectedCrypto && selectedPayment === "Alipay" ? (
+                  <AlipaySvg />
+                ) : (
+                  " "
+                )}
+              </div>
+              <div className="mobile:justify-center mobile:items-start mobile:gap-5 flex  w-96 justify-between items-center">
+                {selectedCrypto ? (
+                  <>
+                    {" "}
+                    <motion.div
+                      className="box"
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{
+                        duration: 1,
+                        delay: 0.2,
+                        ease: [0, 0.71, 0.2, 1.01],
+                      }}
+                    >
+                      <div className="flex gap-5 items-center">
+                        <Image
+                          width={50}
+                          height={50}
+                          alt="coin"
+                          src={currentCrypto[0].logo}
+                        />
+                        <span className="bg-[rgb(40,36,85)] p-3 rounded-xl text-sm font-[1000]">
+                          {currentCrypto[0].name}
+                        </span>
+                      </div>{" "}
+                    </motion.div>
+                    <motion.div
+                      className="box"
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{
+                        duration: 1,
+                        delay: 0.2,
+                        ease: [0, 0.71, 0.2, 1.01],
+                      }}
+                    >
+                      <div className="font-[1000] text-[16px]">
+                        ≈ {currentCrypto[0].price} USD
+                      </div>
+                    </motion.div>
+                    <PopOver />
+                  </>
+                ) : (
                   <PopOver />
-                </>
-              ) : (
-                <PopOver />
-              )}
-            </div>
-          </div>
-          {selectedCrypto ? (
-            <div className="mobile:justify-center flex justify-around ">
-              <div></div>
-              <div className="font-[1000] pt-8">
-                Avaliable:{" "}
-                <span className="font-[1000]">
-                  {Number(avaliableCrypto.toFixed(6))} {currentCrypto[0].name} ≈{" "}
-                  {Math.floor(currentCrypto[0].price * avaliableCrypto)} USD
-                </span>
+                )}
               </div>
             </div>
-          ) : (
-            ""
-          )}
-          <div className="mobile:flex-col mobile:gap-5 flex items-center mt-8 justify-around">
-            <InputComponent>{selectedPayment}</InputComponent>
-            <div
-              className={`${
-                currentCrypto[0]?.name ? "" : "opacity-0"
-              }  flex gap-8 w-96 items-center`}
-            >
-              {currentCrypto[0] && selectedPayment ? (
-                <InputComponentForCrypto avaliableBalance={avaliableCrypto}>
-                  {currentCrypto[0]?.name}
-                </InputComponentForCrypto>
-              ) : null}
-            </div>
-          </div>
-          <div className="flex justify-center mt-10">
-            {currentCrypto[0]?.name ? (
-              <ButtonMain
-                active={
-                  +withdrawAmount <= avaliableCrypto &&
-                  +withdrawAmount > 0.00005 &&
-                  paymentDetails.length > 3
-                    ? true
-                    : false
-                }
-                type="primary"
-                onClick={() => console.log("")}
+            {selectedCrypto ? (
+              <motion.div
+                className="box"
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  duration: 1,
+                  delay: 0.2,
+                  ease: [0, 0.71, 0.2, 1.01],
+                }}
               >
-                {"Withdraw ( $" +
-                  Math.floor(
-                    currentCrypto[0]?.price * +withdrawAmount
-                  ).toString() +
-                  " )"}
-              </ButtonMain>
+                <div className="mobile:justify-center flex justify-around ">
+                  <div></div>
+                  <div className="font-[1000] pt-8">
+                    Avaliable:{" "}
+                    <span className="font-[1000]">
+                      {Number(avaliableCrypto.toFixed(6))}{" "}
+                      {currentCrypto[0].name} ≈{" "}
+                      {Math.floor(currentCrypto[0].price * avaliableCrypto)} USD
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
             ) : (
               ""
-            )}
+            )}{" "}
+            <div className="mobile:flex-col mobile:gap-5 flex items-center mt-8 justify-around">
+              <InputComponent>{selectedPayment}</InputComponent>
+              <div
+                className={`${
+                  currentCrypto[0]?.name ? "" : "opacity-0"
+                }  flex gap-8 w-96 items-center`}
+              >
+                {currentCrypto[0] && selectedPayment ? (
+                  <InputComponentForCrypto avaliableBalance={avaliableCrypto}>
+                    {currentCrypto[0]?.name}
+                  </InputComponentForCrypto>
+                ) : null}
+              </div>
+            </div>
+            <div className="flex justify-center mt-10">
+              {currentCrypto[0]?.name ? (
+                <ButtonMain
+                  active={
+                    +withdrawAmount <= avaliableCrypto &&
+                    +withdrawAmount > 0.00005 &&
+                    paymentDetails.length > 3
+                      ? true
+                      : false
+                  }
+                  type="primary"
+                  onClick={() => console.log("")}
+                >
+                  {"Withdraw ( $" +
+                    Math.floor(
+                      currentCrypto[0]?.price * +withdrawAmount
+                    ).toString() +
+                    " )"}
+                </ButtonMain>
+              ) : (
+                ""
+              )}
+            </div>
           </div>
-        </div>
-      )}
-    </form>
+        )}
+      </form>
+    </motion.div>
   );
 };
 
