@@ -37,7 +37,8 @@ export async function getUsers(formData) {
   }
 }
 
-export async function createWithdraw(formData) {
+export async function createWithdraw(formData, userId) {
+  console.log(userId, formData);
   let payment = formData.get("paymentMethod");
   let cryptoName;
   for (let [key] of formData.entries()) {
@@ -58,6 +59,7 @@ export async function createWithdraw(formData) {
     status: "Processing...",
     amount: +formData.get(cryptoName),
     crypto: cryptoName,
+    userId,
   };
   try {
     const {} = await supabase.from("CryptoTransactions").insert(newTransaction);

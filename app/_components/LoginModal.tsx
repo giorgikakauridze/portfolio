@@ -29,6 +29,7 @@ const LoginModal = () => {
       if (result.success) {
         localStorage.setItem("isLogged", "true");
         localStorage.setItem("LoggedUser", result.isValid[0].fullName);
+        localStorage.setItem("UserID", result.isValid[0].id);
         setUser(result.isValid[0]);
         setIsLogged(true);
       } else {

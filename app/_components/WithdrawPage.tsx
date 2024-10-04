@@ -62,9 +62,10 @@ const WithdrawPage = () => {
     { name: "Alipay" },
   ];
 
-  const handleLogin = async (formData: FormData) => {
+  const handleWithdraw = async (formData: FormData) => {
+    const userId = localStorage.getItem("UserID");
     try {
-      const result = await createWithdraw(formData);
+      const result = await createWithdraw(formData, userId);
 
       if (result.success) {
         return router.push("/account/withdraw/success");
@@ -85,7 +86,7 @@ const WithdrawPage = () => {
         ease: [0, 0.71, 0.2, 1.01],
       }}
     >
-      <form action={handleLogin}>
+      <form action={handleWithdraw}>
         {isLoading ? (
           <div className="flex items-center justify-center pt-96">
             <SpinnerComponent />

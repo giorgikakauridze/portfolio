@@ -31,6 +31,7 @@ const defaultTransactions: Transactions[] = [
     id: 999,
     amount: 0.5,
     crypto: "null",
+    userId: 989,
   },
 ];
 
@@ -76,6 +77,7 @@ interface User {
 }
 interface Transactions {
   crypto: string;
+  userId: number;
   id: number;
   address: string;
   type: string;
@@ -117,6 +119,7 @@ export const MyProvider = ({ children }: { children: ReactNode }) => {
   const [paymentDetails, setPaymentDetails] = useState<string>("");
   const [transactions, setTransactions] =
     useState<Transactions[]>(defaultTransactions);
+
   const [selectedPayment, setSelectedPayment] = useState<string>("");
   const [user, setUser] = useState<User>(defaultUser);
   const [inputCheck, setInputCheck] = useState<boolean>(false);
@@ -333,6 +336,7 @@ export const MyProvider = ({ children }: { children: ReactNode }) => {
       address: string;
       status: string;
       crypto: string;
+      userId: number;
     };
 
     type SupabaseInsertPayload = {
@@ -340,14 +344,18 @@ export const MyProvider = ({ children }: { children: ReactNode }) => {
     };
 
     const fetchTransactions = async () => {
-      try {
-        const { data, error } = await supabase
-          .from("CryptoTransactions")
-          .select("*");
-        if (error) throw error;
-        setTransactions(data || []);
-      } catch (err) {
-        toast.error("Error fetching transactions.");
+      const userID = localStorage.getItem("UserID");
+      if (userID) {
+        try {
+          const { data, error } = await supabase
+            .from("CryptoTransactions")
+            .select("*");
+          if (error) throw error;
+          const filt = data.filter((transc) => transc.userId === +userID);
+          setTransactions(filt || []);
+        } catch (err) {
+          toast.error("Error fetching transactions.");
+        }
       }
     };
 
