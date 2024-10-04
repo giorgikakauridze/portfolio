@@ -8,7 +8,6 @@ import {
   TableCell,
 } from "@nextui-org/react";
 import { StaticImageData } from "next/image";
-import { useEffect, useState } from "react";
 interface Coin {
   name: string;
   price: number;
