@@ -23,17 +23,6 @@ const defaultUser: User = {
   fullName: "John Smith",
   id: 1,
 };
-const defaultTransactions: Transactions[] = [
-  {
-    address: "null",
-    type: "deposit",
-    status: "confirmed",
-    id: 999,
-    amount: 0.5,
-    crypto: "null",
-    userId: 989,
-  },
-];
 
 interface Coin {
   id: number;
@@ -117,8 +106,7 @@ const MyContext = createContext<MyContextType | undefined>(undefined);
 
 export const MyProvider = ({ children }: { children: ReactNode }) => {
   const [paymentDetails, setPaymentDetails] = useState<string>("");
-  const [transactions, setTransactions] =
-    useState<Transactions[]>(defaultTransactions);
+  const [transactions, setTransactions] = useState<Transactions[]>([]);
 
   const [selectedPayment, setSelectedPayment] = useState<string>("");
   const [user, setUser] = useState<User>(defaultUser);
@@ -422,6 +410,8 @@ export const MyProvider = ({ children }: { children: ReactNode }) => {
         setSelectedPayment,
         user,
         setUser,
+        setIsLoading,
+        isLoading,
         inputCheck,
         setInputCheck,
         selectedCrypto,
@@ -431,8 +421,6 @@ export const MyProvider = ({ children }: { children: ReactNode }) => {
         cryptoData,
         setCryptoData,
         coins,
-        isLoading,
-        setIsLoading,
       }}
     >
       {children}

@@ -1,6 +1,6 @@
 "use client";
 import Image, { StaticImageData } from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SnippetUI from "./Snippet";
 import ButtonMain from "./ButtonMain";
 import Line from "./Line";
@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import TableComponent from "./TableComponent";
 import { useMyContext } from "../_context/context";
 import { motion } from "framer-motion";
+import { supabase } from "../_lib/supabase";
 
 interface Coin {
   name: string;
@@ -22,15 +23,52 @@ interface Coin {
 interface CryptoCardProps {
   coin: Coin;
 }
+interface ChildrenProps {
+  type: string;
+  crypto: string;
+  amount: number;
+  address: string;
+  status: string;
+  id: number;
+  userId: number;
+}
 const AccountCryptoCard: React.FC<CryptoCardProps> = ({ coin }) => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
 
-  const { transactions, balance } = useMyContext();
+  const { balance } = useMyContext();
   const isOpenHandler = () => {
     setIsOpen(!isOpen);
   };
   const correctCrypto = balance.filter((el) => el.name === coin.name);
+
+  const [transactions, setTransactions] = useState<ChildrenProps[]>([]);
+
+  const fetchTransactions = async () => {
+    const userID = localStorage.getItem("UserID");
+    if (userID) {
+      try {
+        const { data, error } = await supabase
+          .from("CryptoTransactions")
+          .select("*");
+
+        if (error) throw error;
+
+        const filteredTransactions = data.filter(
+          (transc) => transc.userId === +userID
+        );
+
+        setTransactions(filteredTransactions || []); // Set transactions
+      } catch (err) {
+        console.error("Error fetching transactions:", err);
+      }
+    }
+  };
+
+  // useEffect to fetch data when the component mounts
+  useEffect(() => {
+    fetchTransactions();
+  }, []);
 
   return (
     <>

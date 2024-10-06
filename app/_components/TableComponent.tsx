@@ -57,7 +57,7 @@ const TableComponent: React.FC<TableProps> = ({ coin, transactions }) => {
         <TableColumn>TO</TableColumn>
         <TableColumn>STATUS</TableColumn>
       </TableHeader>
-      <TableBody emptyContent={"No transactions to display."}>
+      <TableBody emptyContent={""}>
         {transactions.map((item, index) =>
           coin?.name === item?.crypto ? (
             <TableRow key={index}>
