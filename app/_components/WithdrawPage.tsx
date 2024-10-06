@@ -21,7 +21,6 @@ import SpinnerComponent from "@/app/_components/Spinner";
 import { motion } from "framer-motion";
 import { supabase } from "../_lib/supabase";
 import Line from "./Line";
-import TabsComponent from "./TabsComponent";
 
 interface ChildrenProps {
   type: string;
