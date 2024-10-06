@@ -1,6 +1,6 @@
 "use client";
 import Image, { StaticImageData } from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import SnippetUI from "./Snippet";
 import ButtonMain from "./ButtonMain";
 import Line from "./Line";

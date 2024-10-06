@@ -33,10 +33,7 @@ interface Coin {
   fullName: string;
   address: string;
 }
-interface Balance {
-  name: string;
-  total: number;
-}
+
 const defaultCryptoData: CryptoData = {
   BTC: { USD: 0, EUR: 0 },
   ETH: { USD: 0, EUR: 0 },

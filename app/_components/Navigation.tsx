@@ -9,7 +9,6 @@ import { usePathname, useRouter } from "next/navigation";
 import AccountSvg from "../svgs/accountSvg";
 import { motion } from "framer-motion";
 import LineNav from "./LineNav";
-import Line from "./Line";
 
 const Navigation = () => {
   const { isLogged, user } = useMyContext();
