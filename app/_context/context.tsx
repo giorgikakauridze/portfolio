@@ -132,7 +132,7 @@ export const MyProvider = ({ children }: { children: ReactNode }) => {
     },
     {
       id: 3,
-      fullName: "Thether USDT",
+      fullName: "USDT (ERC20)",
       name: "USDT",
       price: cryptoData.USDT.USD,
       gain: "0.05",

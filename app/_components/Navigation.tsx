@@ -113,17 +113,26 @@ const Navigation = () => {
           <div>
             <span
               className={`${
-                currentPath === "/account" ? "text-[rgb(108,107,158)]" : ""
+                currentPath === "/account" ||
+                currentPath === "/account/withdraw"
+                  ? "text-[rgb(108,107,158)]"
+                  : ""
               } text-xl flex gap-5 items-center`}
             >
               {isLogged ? (
                 <Link href={"/account"}>
-                  <div className="flex cursor-pointer items-center gap-5 ">
-                    {optimizedName}
-                    <div className="bg-[rgb(102,57,228)] p-3 rounded-[50%]">
-                      <AccountSvg />
+                  <motion.div
+                    whileHover={{ scale: 0.92 }}
+                    initial={{ scale: 1 }}
+                    transition={{ type: "spring", stiffness: 400 }}
+                  >
+                    <div className="flex cursor-pointer items-center gap-5 ">
+                      {optimizedName}
+                      <div className="bg-[rgb(102,57,228)] p-3 rounded-[50%]">
+                        <AccountSvg />
+                      </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </Link>
               ) : (
                 <>

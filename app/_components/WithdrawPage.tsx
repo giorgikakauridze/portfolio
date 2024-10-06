@@ -20,6 +20,8 @@ import AlipaySvg from "@/app/svgs/alipaySvg";
 import SpinnerComponent from "@/app/_components/Spinner";
 import { motion } from "framer-motion";
 import { supabase } from "../_lib/supabase";
+import Line from "./Line";
+import TabsComponent from "./TabsComponent";
 
 interface ChildrenProps {
   type: string;
@@ -246,12 +248,11 @@ const WithdrawPage = () => {
 
   return (
     <motion.div
-      className="box"
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, y: 200 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{
         duration: 1,
-        delay: 0.5,
+        delay: 0,
         ease: [0, 0.71, 0.2, 1.01],
       }}
     >
@@ -261,11 +262,20 @@ const WithdrawPage = () => {
             <SpinnerComponent />
           </div>
         ) : (
-          <div className="pt-36">
-            <div className="flex pb-16 text-2xl justify-center  font-[1000]">
-              Withdrawable Balance: {accumulatedBalance} $
+          <div className="pt-16">
+            <div>
+              <div className="flex text-2xl justify-center font-[1000]">
+                <div>
+                  <span className="opacity-75"> Account Balance: </span>
+                  <span className="ml-5 opacity-80">
+                    {" "}
+                    $ {accumulatedBalance}
+                  </span>
+                </div>
+              </div>
+              <Line />
             </div>
-            <div className="mobile:flex-col mobile:gap-5  flex items-center justify-around">
+            <div className="mobile:flex-col mobile:gap-5 pt-10  flex items-center justify-around">
               <div
                 className={`flex items-center gap-5 ${
                   selectedCrypto ? "w-96" : ""

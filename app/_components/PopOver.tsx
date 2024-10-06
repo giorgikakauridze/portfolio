@@ -5,6 +5,7 @@ import {
   Button,
 } from "@nextui-org/react";
 import { useMyContext } from "../_context/context";
+import { motion } from "framer-motion";
 
 interface Balance {
   total: number;
@@ -68,26 +69,32 @@ const PopOver: React.FC<SelectComponentProps> = ({ balance }) => {
   );
 
   return (
-    <div className="flex flex-wrap gap-4">
-      <Popover
-        classNames={{ content: "bg-[rgb(24,22,51)]" }}
-        showArrow
-        offset={10}
-        placement="bottom"
-        backdrop="blur"
-      >
-        <PopoverTrigger>
-          <Button
-            color="default"
-            variant="flat"
-            className="capitalize text-white bg-[rgb(102,57,228)]"
-          >
-            Choose Crypto
-          </Button>
-        </PopoverTrigger>
-        {content}
-      </Popover>
-    </div>
+    <motion.div
+      whileHover={{ scale: 0.96 }}
+      initial={{ scale: 1 }}
+      transition={{ type: "spring", stiffness: 800 }}
+    >
+      <div className="flex flex-wrap gap-4">
+        <Popover
+          classNames={{ content: "bg-[rgb(24,22,51)]" }}
+          showArrow
+          offset={10}
+          placement="bottom"
+          backdrop="blur"
+        >
+          <PopoverTrigger>
+            <Button
+              color="default"
+              variant="flat"
+              className="capitalize text-white bg-[rgb(102,57,228)]"
+            >
+              Choose Crypto
+            </Button>
+          </PopoverTrigger>
+          {content}
+        </Popover>
+      </div>
+    </motion.div>
   );
 };
 
