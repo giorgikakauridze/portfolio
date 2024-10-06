@@ -56,10 +56,16 @@ const LoginModal = () => {
 
   return (
     <>
-      <Button onClick={onOpen} size="lg" color="secondary">
-        Log in
-      </Button>
-
+      {" "}
+      <motion.div
+        whileHover={{ scale: 0.96 }}
+        initial={{ scale: 1 }}
+        transition={{ type: "spring", stiffness: 800 }}
+      >
+        <Button onClick={onOpen} size="lg" color="secondary">
+          Log in
+        </Button>
+      </motion.div>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="top">
         <ModalContent className="text-white bg-[rgb(29,27,64)]">
           {(onClose) => (
@@ -125,22 +131,34 @@ const LoginModal = () => {
                   </motion.div>
                 </ModalBody>
                 <ModalFooter className="flex gap-5">
-                  <Button
-                    size="md"
-                    color="default"
-                    className="bg-[rgb(40,37,83)] text-white"
-                    onPress={onClose}
+                  <motion.div
+                    whileHover={{ scale: 0.96 }}
+                    initial={{ scale: 1 }}
+                    transition={{ type: "spring", stiffness: 800 }}
                   >
-                    Close
-                  </Button>
-                  <Button
-                    type="submit"
-                    size="md"
-                    color="secondary"
-                    onPress={onClose}
+                    <Button
+                      size="md"
+                      color="default"
+                      className="bg-[rgb(40,37,83)] text-white"
+                      onPress={onClose}
+                    >
+                      Close
+                    </Button>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 0.96 }}
+                    initial={{ scale: 1 }}
+                    transition={{ type: "spring", stiffness: 800 }}
                   >
-                    Sign in
-                  </Button>
+                    <Button
+                      type="submit"
+                      size="md"
+                      color="secondary"
+                      onPress={onClose}
+                    >
+                      Sign in
+                    </Button>
+                  </motion.div>
                 </ModalFooter>
               </form>
             </>

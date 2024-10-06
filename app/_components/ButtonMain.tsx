@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "@nextui-org/react";
+import { motion } from "framer-motion";
 
 interface ButtonProps {
   active: boolean;
@@ -16,16 +17,22 @@ const ButtonMain: React.FC<ButtonProps> = ({
 }) => {
   return (
     <div className="flex   flex-wrap gap-4 items-center">
-      <Button
-        isDisabled={(children === "Sign account" || "Send") && !active}
-        size="lg"
-        type="submit"
-        onClick={onClick}
-        color={type}
-        className={type === "primary" ? "bg-[rgb(40,37,83)] " : "font-[1000]"}
+      <motion.div
+        whileHover={{ scale: 0.96 }}
+        initial={{ scale: 1 }}
+        transition={{ type: "spring", stiffness: 800 }}
       >
-        {children}
-      </Button>
+        <Button
+          isDisabled={(children === "Sign account" || "Send") && !active}
+          size="lg"
+          type="submit"
+          onClick={onClick}
+          color={type}
+          className={type === "primary" ? "bg-[rgb(40,37,83)] " : "font-[1000]"}
+        >
+          {children}
+        </Button>
+      </motion.div>
     </div>
   );
 };

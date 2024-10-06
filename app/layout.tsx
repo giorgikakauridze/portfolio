@@ -41,7 +41,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <main>
+        <main className="1700:pl-20 1700:pr-20 mobile:p-0">
           <NextUIProvider>
             <MyProvider>
               <Toaster />

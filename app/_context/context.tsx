@@ -87,7 +87,6 @@ interface MyContextType {
   selectedCrypto: string;
   setSelectedCrypto: React.Dispatch<React.SetStateAction<string>>;
   coins: Coin[];
-  balance: Balance[];
   isLoading: boolean;
   withdrawAmount: string;
   setWithdrawAmount: React.Dispatch<React.SetStateAction<string>>;
@@ -95,7 +94,6 @@ interface MyContextType {
   setIsLogged: React.Dispatch<React.SetStateAction<boolean>>;
   cryptoData: CryptoData;
   setCryptoData: React.Dispatch<React.SetStateAction<CryptoData>>;
-  accumulatedBalance: number;
   paymentDetails: string;
   setPaymentDetails: React.Dispatch<React.SetStateAction<string>>;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
@@ -173,137 +171,6 @@ export const MyProvider = ({ children }: { children: ReactNode }) => {
     },
   ];
 
-  const balance = [
-    {
-      name: "BTC",
-      total:
-        transactions
-          .filter(
-            (transaction) =>
-              transaction.crypto === "BTC" && transaction.type === "Deposit"
-          )
-          .map((el) => el.amount)
-          .reduce((acc, cur) => acc + cur, 0) -
-        transactions
-          .filter(
-            (transaction) =>
-              transaction.crypto === "BTC" && transaction.type === "Withdraw"
-          )
-          .map((el) => el.amount)
-          .reduce((acc, cur) => acc + cur, 0),
-    },
-    {
-      name: "ETH",
-      total:
-        transactions
-          .filter(
-            (transaction) =>
-              transaction.crypto === "ETH" && transaction.type === "Deposit"
-          )
-          .map((el) => el.amount)
-          .reduce((acc, cur) => acc + cur, 0) -
-        transactions
-          .filter(
-            (transaction) =>
-              transaction.crypto === "ETH" && transaction.type === "Withdraw"
-          )
-          .map((el) => el.amount)
-          .reduce((acc, cur) => acc + cur, 0),
-    },
-    {
-      name: "USDT",
-      total:
-        transactions
-          .filter(
-            (transaction) =>
-              transaction.crypto === "USDT" && transaction.type === "Deposit"
-          )
-          .map((el) => el.amount)
-          .reduce((acc, cur) => acc + cur, 0) -
-        transactions
-          .filter(
-            (transaction) =>
-              transaction.crypto === "USDT" && transaction.type === "Withdraw"
-          )
-          .map((el) => el.amount)
-          .reduce((acc, cur) => acc + cur, 0),
-    },
-    {
-      name: "SOL",
-      total:
-        transactions
-          .filter(
-            (transaction) =>
-              transaction.crypto === "SOL" && transaction.type === "Deposit"
-          )
-          .map((el) => el.amount)
-          .reduce((acc, cur) => acc + cur, 0) -
-        transactions
-          .filter(
-            (transaction) =>
-              transaction.crypto === "SOL" && transaction.type === "Withdraw"
-          )
-          .map((el) => el.amount)
-          .reduce((acc, cur) => acc + cur, 0),
-    },
-    {
-      name: "XRP",
-      total:
-        transactions
-          .filter(
-            (transaction) =>
-              transaction.crypto === "XRP" && transaction.type === "Deposit"
-          )
-          .map((el) => el.amount)
-          .reduce((acc, cur) => acc + cur, 0) -
-        transactions
-          .filter(
-            (transaction) =>
-              transaction.crypto === "XRP" && transaction.type === "Withdraw"
-          )
-          .map((el) => el.amount)
-          .reduce((acc, cur) => acc + cur, 0),
-    },
-    {
-      name: "USDC",
-      total:
-        transactions
-          .filter(
-            (transaction) =>
-              transaction.crypto === "USDC" && transaction.type === "Deposit"
-          )
-          .map((el) => el.amount)
-          .reduce((acc, cur) => acc + cur, 0) -
-        transactions
-          .filter(
-            (transaction) =>
-              transaction.crypto === "USDC" && transaction.type === "Withdraw"
-          )
-          .map((el) => el.amount)
-          .reduce((acc, cur) => acc + cur, 0),
-    },
-  ];
-
-  const balancesArray = balance.map((crypto) =>
-    crypto.name === "BTC"
-      ? crypto.total * cryptoData.BTC.USD
-      : crypto.name === "ETH"
-      ? crypto.total * cryptoData.ETH.USD
-      : crypto.name === "USDT"
-      ? crypto.total * 1
-      : crypto.name === "SOL"
-      ? crypto.total * cryptoData.SOL.USD
-      : crypto.name === "USDC"
-      ? crypto.total * 1
-      : crypto.name === "XRP"
-      ? crypto.total * cryptoData.XRP.USD
-      : 0
-  );
-
-  const accumulatedBalance = Math.floor(
-    balancesArray.reduce((acc, cur) => acc + cur, 0)
-  );
-
   useEffect(() => {
     const cryptos = async () => {
       const res = await fetch(
@@ -330,24 +197,6 @@ export const MyProvider = ({ children }: { children: ReactNode }) => {
     type SupabaseInsertPayload = {
       new: CryptoTransaction;
     };
-
-    const fetchTransactions = async () => {
-      const userID = localStorage.getItem("UserID");
-      if (userID) {
-        try {
-          const { data, error } = await supabase
-            .from("CryptoTransactions")
-            .select("*");
-          if (error) throw error;
-          const filt = data.filter((transc) => transc.userId === +userID);
-          setTransactions(filt || []);
-        } catch (err) {
-          toast.error("Error fetching transactions.");
-        }
-      }
-    };
-
-    fetchTransactions();
 
     const channel = supabase
       .channel("crypto-transactions-channel")
@@ -398,12 +247,11 @@ export const MyProvider = ({ children }: { children: ReactNode }) => {
   return (
     <MyContext.Provider
       value={{
+        cryptoData,
         paymentDetails,
         setPaymentDetails,
         withdrawAmount,
         setWithdrawAmount,
-        accumulatedBalance,
-        balance,
         transactions,
         setTransactions,
         selectedPayment,
@@ -418,7 +266,7 @@ export const MyProvider = ({ children }: { children: ReactNode }) => {
         setSelectedCrypto,
         isLogged,
         setIsLogged,
-        cryptoData,
+
         setCryptoData,
         coins,
       }}

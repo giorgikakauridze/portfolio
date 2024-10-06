@@ -8,6 +8,8 @@ import { useMyContext } from "../_context/context";
 import { usePathname, useRouter } from "next/navigation";
 import AccountSvg from "../svgs/accountSvg";
 import { motion } from "framer-motion";
+import LineNav from "./LineNav";
+import Line from "./Line";
 
 const Navigation = () => {
   const { isLogged, user } = useMyContext();
@@ -31,47 +33,81 @@ const Navigation = () => {
           ease: [0, 0.71, 0.2, 1.01],
         }}
       >
+        {" "}
         <div className="font-semibold mobile:hidden  text-lg flex items-center justify-between">
           <div>
             <Link href="/">
-              <LogoSvg />
+              <motion.div
+                whileHover={{ scale: 0.92 }}
+                initial={{ scale: 1 }}
+                transition={{ type: "spring", stiffness: 400 }}
+              >
+                <LogoSvg />
+              </motion.div>
             </Link>
           </div>
-          <div className="flex gap-7 ">
+          <div className="flex items-center  gap-7 ">
             <Link href="/">
               <span
                 className={`${
                   currentPath === "/" ? "text-[rgb(108,107,158)]" : ""
                 } text-xl`}
               >
-                Home
+                <motion.div
+                  whileHover={{ scale: 0.92 }}
+                  initial={{ scale: 1 }}
+                  transition={{ type: "spring", stiffness: 400 }}
+                >
+                  Home
+                </motion.div>
               </span>
             </Link>
+            <LineNav />
             <Link href="/about">
               <span
                 className={`${
                   currentPath === "/about" ? "text-[rgb(108,107,158)]" : ""
                 } text-xl`}
               >
-                About
+                <motion.div
+                  whileHover={{ scale: 0.92 }}
+                  initial={{ scale: 1 }}
+                  transition={{ type: "spring", stiffness: 400 }}
+                >
+                  About
+                </motion.div>
               </span>
             </Link>
+            <LineNav />
             <Link href="/blog">
               <span
                 className={`${
                   currentPath === "/blog" ? "text-[rgb(108,107,158)]" : ""
                 } text-xl`}
               >
-                Blog
+                <motion.div
+                  whileHover={{ scale: 0.92 }}
+                  initial={{ scale: 1 }}
+                  transition={{ type: "spring", stiffness: 400 }}
+                >
+                  Blog
+                </motion.div>
               </span>
             </Link>
+            <LineNav />
             <Link href="/tokens">
               <span
                 className={`${
                   currentPath === "/tokens" ? "text-[rgb(108,107,158)]" : ""
                 } text-xl`}
               >
-                Tokens
+                <motion.div
+                  whileHover={{ scale: 0.92 }}
+                  initial={{ scale: 1 }}
+                  transition={{ type: "spring", stiffness: 400 }}
+                >
+                  Tokens
+                </motion.div>
               </span>
             </Link>
           </div>

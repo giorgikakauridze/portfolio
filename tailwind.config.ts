@@ -17,6 +17,7 @@ const config: Config = {
         1700: { max: "1700px" },
         1850: { max: "1850px" },
         mobile: { max: "1024px" },
+        1165: { max: "1165px" },
       },
       zIndex: {
         modal: "9999",

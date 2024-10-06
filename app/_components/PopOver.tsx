@@ -6,8 +6,15 @@ import {
 } from "@nextui-org/react";
 import { useMyContext } from "../_context/context";
 
-const PopOver = () => {
-  const { setSelectedCrypto, balance } = useMyContext();
+interface Balance {
+  total: number;
+  name: string;
+}
+interface SelectComponentProps {
+  balance: Balance[];
+}
+const PopOver: React.FC<SelectComponentProps> = ({ balance }) => {
+  const { setSelectedCrypto } = useMyContext();
 
   const content = (
     <PopoverContent className="w-[240px]">

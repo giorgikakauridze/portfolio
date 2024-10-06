@@ -12,7 +12,7 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="mobile:flex-col  mt-40 flex items-center justify-around text-white  bg-[rgb(29,27,64)] text-xl mobile:text-sm">
+      <footer className="1700:flex-col  mt-40 flex items-center justify-around text-white  bg-[rgb(29,27,64)] text-xl mobile:text-sm">
         <div>
           <div className="mobile:gap-10 flex items-center gap-20 mobile:pr-0 pr-[25svh] pt-10 pb-10">
             <LogoSvg />
@@ -59,7 +59,7 @@ const Footer = () => {
             Copyright By CoinStonks © 2015-2024 , Powered By Blockchain
           </div>
         </div>
-        <div className="mobile:hidden flex gap-7 items-center">
+        <div className="1700:hidden flex gap-7 items-center">
           <div className="flex mr-10 gap-3">
             <HeadPhonesSvg />
             <span>support@coinstonk.com</span>
@@ -67,7 +67,7 @@ const Footer = () => {
           <VisaSvg />
           <MastercardSvg />
         </div>
-        <div className="hidden mobile:gap-0 mobile:flex gap-7 items-center">
+        <div className="hidden 1700:gap-0 1700:flex flex-col gap-5 items-center">
           <div className="flex mr-10 gap-3">
             <HeadPhonesSvg />
             <span>support@coinstonk.com</span>
