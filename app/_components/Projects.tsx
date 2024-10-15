@@ -63,8 +63,8 @@ function Image({ project }: { project: Project }) {
           {" "}
           <motion.div style={{ y }}>
             <div className="flex max-w-96 gap-10">
-              {project.callStack.map((Comp) => (
-                <span>{Comp}</span>
+              {project.callStack.map((Comp, index) => (
+                <span key={index}>{Comp}</span>
               ))}
             </div>
           </motion.div>
@@ -147,7 +147,7 @@ export default function App() {
       >
         {projects.map((project) => (
           <>
-            <Image project={project} />
+            <Image key={project.id} project={project} />
           </>
         ))}
       </motion.div>
