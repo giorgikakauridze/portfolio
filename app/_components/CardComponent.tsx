@@ -15,7 +15,7 @@ export default function CardComponent({ image, sitelink }: CardComponentProps) {
       className="outline-none border-none scale-105 hover:scale-100 hover:opacity-85 opacity-95 group"
     >
       <Image
-        alt="Woman listing to music"
+        alt="Portfolio Project"
         className="object-cover"
         height={450}
         src={image}

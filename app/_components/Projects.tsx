@@ -27,7 +27,7 @@ function useParallax(value: MotionValue<number>, distance: number) {
   return useTransform(value, [0, 1], [-distance, distance]);
 }
 
-function Image({ project }: { project: Project }) {
+function Project({ project }: { project: Project }) {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref });
   const y = useParallax(scrollYProgress, 300);
@@ -147,7 +147,7 @@ export default function App() {
       >
         {projects.map((project) => (
           <>
-            <Image key={project.id} project={project} />
+            <Project key={project.id} project={project} />
           </>
         ))}
       </motion.div>

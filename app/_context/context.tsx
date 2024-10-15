@@ -25,13 +25,13 @@ const projects = [
     gitHubLink: "https://github.com/giorgikakauridze/CryptoAppPortfolio",
     image: cryptoapp.src,
     callStack: [
-      <NextSvg />,
-      <NextUi />,
-      <ReactSvg />,
-      <TypeScriptSvg />,
-      <FramerSvg />,
-      <NodeSvg />,
-      <TailwindSvg />,
+      <NextSvg key={"rame"} />,
+      <NextUi key={"rame"} />,
+      <ReactSvg key={"rame"} />,
+      <TypeScriptSvg key={"rame"} />,
+      <FramerSvg key={"rame"} />,
+      <NodeSvg key={"rame"} />,
+      <TailwindSvg key={"rame"} />,
     ],
   },
   {
@@ -43,13 +43,13 @@ const projects = [
     gitHubLink: "https://github.com/datoiashvili713/stamphub-v2",
     image: stamphub.src,
     callStack: [
-      <NextUi />,
-      <TypeScriptSvg />,
-      <NextSvg />,
-      <TailwindSvg />,
-      <FramerSvg />,
-      <ReactSvg />,
-      <NodeSvg />,
+      <NextUi key={"rame"} />,
+      <TypeScriptSvg key={"rame"} />,
+      <NextSvg key={"rame"} />,
+      <TailwindSvg key={"rame"} />,
+      <FramerSvg key={"rame"} />,
+      <ReactSvg key={"rame"} />,
+      <NodeSvg key={"rame"} />,
     ],
   },
   {
@@ -61,12 +61,12 @@ const projects = [
     gitHubLink: "https://github.com/giorgikakauridze/Netflixy",
     image: hotdImage.src,
     callStack: [
-      <NextUi />,
-      <TypeScriptSvg />,
-      <NextSvg />,
-      <TailwindSvg />,
+      <NextUi key={"rame"} />,
+      <TypeScriptSvg key={"rame"} />,
+      <NextSvg key={"rame"} />,
+      <TailwindSvg key={"rame"} />,
 
-      <ReactSvg />,
+      <ReactSvg key={"rame"} />,
     ],
   },
   {
@@ -77,7 +77,12 @@ const projects = [
     siteLink: "https://the-wild-oasis-opal-kappa.vercel.app/",
     gitHubLink: "https://github.com/giorgikakauridze/the-wild-oasis",
     image: wildOasis.src,
-    callStack: [<NextUi />, <ReactSvg />, <TypeScriptSvg />, <TailwindSvg />],
+    callStack: [
+      <NextUi key={"rame"} />,
+      <ReactSvg key={"rame"} />,
+      <TypeScriptSvg key={"rame"} />,
+      <TailwindSvg key={"rame"} />,
+    ],
   },
 
   {
@@ -88,7 +93,12 @@ const projects = [
     siteLink: "https://dashing-dodol-8895f7.netlify.app/",
     gitHubLink: "",
     image: photosnap.src,
-    callStack: [<NextSvg />, <NextUi />, <ReactSvg />, <TypeScriptSvg />],
+    callStack: [
+      <NextSvg key={"rame"} />,
+      <NextUi key={"rame"} />,
+      <ReactSvg key={"rame"} />,
+      <TypeScriptSvg key={"rame"} />,
+    ],
   },
   {
     id: 6,
@@ -98,7 +108,11 @@ const projects = [
     siteLink: "https://audiophileweb.netlify.app/",
     gitHubLink: "",
     image: audiophileImage.src,
-    callStack: [<ReactSvg />, <TypeScriptSvg />, <TailwindSvg />],
+    callStack: [
+      <ReactSvg key={"rame"} />,
+      <TypeScriptSvg key={"rame"} />,
+      <TailwindSvg key={"rame"} />,
+    ],
   },
   {
     id: 7,
@@ -108,7 +122,7 @@ const projects = [
     siteLink: "https://fastreactpiza.netlify.app/",
     gitHubLink: "",
     image: pizza.src,
-    callStack: [<ReactSvg />, <TypeScriptSvg />],
+    callStack: [<ReactSvg key={"rame"} />, <TypeScriptSvg key={"rame"} />],
   },
 ];
 
