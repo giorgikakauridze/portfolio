@@ -31,7 +31,12 @@
     "app/_components/EyeSlashFilledIcon.js",
     "app/_lib/actions.js",
     "app/error.js",
-    "app/_components/LoginModal.js"
+    "app/_components/LoginModal.js",
+    "app/_components/playButton.js",
+    "app/_components/Shapes.js",
+    "app/_components/playButton.js",
+    "app/_components/Shapes.js",
+    "app/_components/use-smooth-transform.js"
   ],
   "exclude": ["node_modules"]
 }

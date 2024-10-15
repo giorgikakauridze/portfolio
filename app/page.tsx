@@ -1,7 +1,7 @@
-import HomePage from "./_components/HomePage";
+import ProjectsPage from "./_components/ProjectsPage";
 
-export const metadata = { title: "CoinStonks: Home" };
+export const metadata = { title: "Portfolio" };
 
 export default function Page() {
-  return <HomePage />;
+  return <ProjectsPage />;
 }

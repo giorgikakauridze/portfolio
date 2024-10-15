@@ -2,12 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { NextUIProvider } from "@nextui-org/react";
-import Navigation from "./_components/Navigation";
-import Footer from "./_components/Footer";
-import Partners from "./_components/Partners";
-import Explore from "./_components/Explore";
 import { MyProvider } from "./_context/context";
-import { Toaster } from "react-hot-toast";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -21,9 +16,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "CoinStonks",
-  description:
-    "CoinStonks.com best platform for crypto transactions , make your first deposit now!",
+  title: "Portfolio",
+  description: "Portfolio of GK",
 };
 
 export default function RootLayout({
@@ -41,20 +35,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <main className="1700:pl-20 1700:pr-20 mobile:p-0">
+        <main className="">
           <NextUIProvider>
             <MyProvider>
-              <Toaster />
-              <Navigation />
-
-              <div className="pb-96">{children}</div>
-
-              <Partners />
-              <Explore />
+              <div className="">{children}</div>
             </MyProvider>
           </NextUIProvider>
         </main>
-        <Footer />
       </body>
     </html>
   );
