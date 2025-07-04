@@ -14,7 +14,7 @@ const ProjectsPage = () => {
       <motion.div
         transition={{ type: "tween", ease: "easeOut", duration: 0.01 }}
         ref={ref}
-        className="fixed z-50 pointer-events-none  opacity-0 w-[100px] h-[100px] border-solid border-1	 border-[rgb(126,117,189)] 	  rounded-[50%] "
+        className="fixed z-[55] pointer-events-none  opacity-0 w-[100px] h-[100px] border-solid border-1	 border-[rgb(126,117,189)] 	  rounded-[50%] "
         style={{ x, y }}
       />
       <Projects />
