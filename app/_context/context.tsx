@@ -14,8 +14,99 @@ import wildOasis from "../../public/wildoasis.png";
 import photosnap from "../../public/photosnap.png";
 import stamphub from "../../public/stamphub.png";
 import pizza from "../../public/pizza.png";
+import anisa from "../../public/anisa.jpeg";
+import flappingo from "../../public/flappingo.png";
+import lucky from "../../public/lucky.jpeg";
+import SR from "../../public/SR.jpeg";
+import parabl from "../../public/parabl.jpeg";
 
 const projects = [
+  {
+    id: 245933,
+    name: "Standup Republic",
+    description: " ",
+    siteLink: "https://standup-republic.de/home",
+    gitHubLink: "",
+    image: SR.src,
+    callStack: [
+      <NextSvg key={"rame"} />,
+      <NextUi key={"rame"} />,
+      <ReactSvg key={"rame"} />,
+      <TypeScriptSvg key={"rame"} />,
+      <FramerSvg key={"rame"} />,
+      <NodeSvg key={"rame"} />,
+      <TailwindSvg key={"rame"} />,
+    ],
+  },
+  {
+    id: 2459,
+    name: "Lucky Punch",
+    description: " ",
+    siteLink: "https://www.luckypunch-comedyclub.de/",
+    gitHubLink: "",
+    image: lucky.src,
+    callStack: [
+      <NextSvg key={"rame"} />,
+      <NextUi key={"rame"} />,
+      <ReactSvg key={"rame"} />,
+      <TypeScriptSvg key={"rame"} />,
+      <FramerSvg key={"rame"} />,
+      <NodeSvg key={"rame"} />,
+      <TailwindSvg key={"rame"} />,
+    ],
+  },
+
+  {
+    id: 249,
+    name: "Parable Studios",
+    description: " ",
+    siteLink: "https://events.parable-studios.com/",
+    gitHubLink: "",
+    image: parabl.src,
+    callStack: [
+      <NextSvg key={"rame"} />,
+      <NextUi key={"rame"} />,
+      <ReactSvg key={"rame"} />,
+      <TypeScriptSvg key={"rame"} />,
+      <FramerSvg key={"rame"} />,
+      <NodeSvg key={"rame"} />,
+      <TailwindSvg key={"rame"} />,
+    ],
+  },
+  {
+    id: 24,
+    name: "Flappingo",
+    description: " ",
+    siteLink: "https://staging.flappingo.com",
+    gitHubLink: "",
+    image: flappingo.src,
+    callStack: [
+      <NextSvg key={"rame"} />,
+      <NextUi key={"rame"} />,
+      <ReactSvg key={"rame"} />,
+      <TypeScriptSvg key={"rame"} />,
+      <FramerSvg key={"rame"} />,
+      <NodeSvg key={"rame"} />,
+      <TailwindSvg key={"rame"} />,
+    ],
+  },
+  {
+    id: 66,
+    name: "Comedy Club Dusseldorf",
+    description: " ",
+    siteLink: "https://comedyclubduesseldorf.de/",
+    gitHubLink: "",
+    image: anisa.src,
+    callStack: [
+      <NextSvg key={"rame"} />,
+      <NextUi key={"rame"} />,
+      <ReactSvg key={"rame"} />,
+      <TypeScriptSvg key={"rame"} />,
+      <FramerSvg key={"rame"} />,
+      <NodeSvg key={"rame"} />,
+      <TailwindSvg key={"rame"} />,
+    ],
+  },
   {
     id: 2,
     name: "Crypto App",
