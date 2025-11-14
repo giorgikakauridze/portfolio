@@ -33,7 +33,7 @@ function Project({ project }: { project: Project }) {
   const y = useParallax(scrollYProgress, 300);
 
   return (
-    <section className=" flex gap-10">
+    <section className="flex-col md:flex-row flex gap-10">
       <div ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 400 }}

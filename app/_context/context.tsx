@@ -19,12 +19,178 @@ import flappingo from "../../public/flappingo.png";
 import lucky from "../../public/lucky.jpeg";
 import SR from "../../public/SR.jpeg";
 import parabl from "../../public/parabl.jpeg";
-
+import mutantradio from "../../public/mutant.png";
+import material from "../../public/material-editors.png";
+import gravita from "../../public/gravita.png";
+import geely from "../../public/geely.png";
+import polaris from "../../public/polaris.png";
+import mazda from "../../public/mazda.png";
+import tegetaAcademy from "../../public/tegeta-academy.png";
+import tegetaIndustry from "../../public/tegeta-industry.png";
+import tegeta from "../../public/tegeta-main.png";
 const projects = [
+  {
+    id: 33223,
+    name: "Tegeta ",
+    description: "",
+    siteLink: "https://toyota-tegeta.ge/",
+    gitHubLink: "",
+    image: tegeta.src,
+    callStack: [
+      <NextSvg key={"rame"} />,
+      <NextUi key={"rame"} />,
+      <ReactSvg key={"rame"} />,
+      <TypeScriptSvg key={"rame"} />,
+      <FramerSvg key={"rame"} />,
+      <NodeSvg key={"rame"} />,
+      <TailwindSvg key={"rame"} />,
+    ],
+  },
+  {
+    id: 140232,
+    name: "Tegeta Industry",
+    description: "",
+    siteLink: "https://www.tegetaindustry.ge/ka",
+    gitHubLink: "",
+    image: tegetaIndustry.src,
+    callStack: [
+      <NextSvg key={"rame"} />,
+      <NextUi key={"rame"} />,
+      <ReactSvg key={"rame"} />,
+      <TypeScriptSvg key={"rame"} />,
+      <FramerSvg key={"rame"} />,
+      <NodeSvg key={"rame"} />,
+      <TailwindSvg key={"rame"} />,
+    ],
+  },
+  {
+    id: 130232,
+    name: "Tegeta Academy",
+    description: "Tegeta Academy is a platform for learning and teaching",
+    siteLink: "https://tegetaacademy.edu.ge/",
+    gitHubLink: "",
+    image: tegetaAcademy.src,
+    callStack: [
+      <NextSvg key={"rame"} />,
+      <NextUi key={"rame"} />,
+      <ReactSvg key={"rame"} />,
+      <TypeScriptSvg key={"rame"} />,
+      <FramerSvg key={"rame"} />,
+      <NodeSvg key={"rame"} />,
+      <TailwindSvg key={"rame"} />,
+    ],
+  },
+  {
+    id: 13023,
+    name: "Mazda Car Dealership Georgia",
+    description: "Mazda Car Dealership Based in Tbilisi, Georgia",
+    siteLink: "https://mazda.ge/en",
+    gitHubLink: "",
+    image: mazda.src,
+    callStack: [
+      <NextSvg key={"rame"} />,
+      <NextUi key={"rame"} />,
+      <ReactSvg key={"rame"} />,
+      <TypeScriptSvg key={"rame"} />,
+      <FramerSvg key={"rame"} />,
+      <NodeSvg key={"rame"} />,
+      <TailwindSvg key={"rame"} />,
+    ],
+  },
+  {
+    id: 130,
+    name: "Polaris Georgia",
+    description: " ",
+    siteLink: "https://polarisgeorgia.ge/ka",
+    gitHubLink: "",
+    image: polaris.src,
+    callStack: [
+      <NextSvg key={"rame"} />,
+      <NextUi key={"rame"} />,
+      <ReactSvg key={"rame"} />,
+      <TypeScriptSvg key={"rame"} />,
+      <FramerSvg key={"rame"} />,
+      <NodeSvg key={"rame"} />,
+      <TailwindSvg key={"rame"} />,
+    ],
+  },
+  {
+    id: 13,
+    name: "Geely",
+    description: "Geely - Automotive Company website",
+    siteLink: "https://geelysakartvelo.com/en",
+    gitHubLink: "",
+    image: geely.src,
+    callStack: [
+      <NextSvg key={"rame"} />,
+      <NextUi key={"rame"} />,
+      <ReactSvg key={"rame"} />,
+      <TypeScriptSvg key={"rame"} />,
+      <FramerSvg key={"rame"} />,
+      <NodeSvg key={"rame"} />,
+      <TailwindSvg key={"rame"} />,
+    ],
+  },
+
+  {
+    id: 12,
+    name: "Gravita",
+    description:
+      "Gravita is a platform for managing and tracking your business.",
+    siteLink: "https://gravita.ge/en",
+    gitHubLink: "",
+    image: gravita.src,
+    callStack: [
+      <NextSvg key={"rame"} />,
+      <NextUi key={"rame"} />,
+      <ReactSvg key={"rame"} />,
+      <TypeScriptSvg key={"rame"} />,
+      <FramerSvg key={"rame"} />,
+      <NodeSvg key={"rame"} />,
+      <TailwindSvg key={"rame"} />,
+    ],
+  },
+
+  {
+    id: 11,
+    name: "Material Editors",
+    description:
+      "Material Editors is a platform for creating and editing materials for the construction industry.",
+    siteLink: "https://materialeditors.ge/en",
+    gitHubLink: "",
+    image: material.src,
+    callStack: [
+      <NextSvg key={"rame"} />,
+      <NextUi key={"rame"} />,
+      <ReactSvg key={"rame"} />,
+      <TypeScriptSvg key={"rame"} />,
+      <FramerSvg key={"rame"} />,
+      <NodeSvg key={"rame"} />,
+      <TailwindSvg key={"rame"} />,
+    ],
+  },
+  {
+    id: 10,
+    name: "Mutant Radio",
+    description:
+      "Mutant Radio is a Community festival Showcase in Tbilisi, Georgia.",
+    siteLink: "https://www.mutantradio.net/",
+    gitHubLink: "",
+    image: mutantradio.src,
+    callStack: [
+      <NextSvg key={"rame"} />,
+      <NextUi key={"rame"} />,
+      <ReactSvg key={"rame"} />,
+      <TypeScriptSvg key={"rame"} />,
+      <FramerSvg key={"rame"} />,
+      <NodeSvg key={"rame"} />,
+      <TailwindSvg key={"rame"} />,
+    ],
+  },
   {
     id: 245933,
     name: "Standup Republic",
-    description: " ",
+    description: "Germany's largest comedy club platform",
     siteLink: "https://standup-republic.de/home",
     gitHubLink: "",
     image: SR.src,
